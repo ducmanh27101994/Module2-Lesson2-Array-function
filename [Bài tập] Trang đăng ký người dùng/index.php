@@ -107,9 +107,9 @@ $registrations = loadRegistrations('data.json');
     </tr>
     <?php foreach ($registrations as $registration): ?>
         <tr>
-            <td><?= $registration['name']; ?></td>
-            <td><?= $registration['email']; ?></td>
-            <td><?= $registration['phone']; ?></td>
+            <td><?php echo $registration['name']; ?></td>
+            <td><?php echo $registration['email']; ?></td>
+            <td><?php echo $registration['phone']; ?></td>
         </tr>
     <?php endforeach; ?>
 </table>

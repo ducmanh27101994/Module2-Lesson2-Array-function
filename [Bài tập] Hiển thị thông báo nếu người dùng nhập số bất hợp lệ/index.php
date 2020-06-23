@@ -30,39 +30,57 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $operator = $_POST['operator'];
     $secondNumber = $_POST['secondNumber'];
 
-    if ($operator === "Addition") {
-        $total = $firstNumber + $secondNumber;
-        echo $total;
-    } else if ($operator === "Subtraction") {
-        $total = $firstNumber - $secondNumber;
-        echo $total;
-    } else if ($operator === "Multiplication") {
-        $total = $firstNumber * $secondNumber;
-        echo $total;
-    } else if ($operator === "Division") {
-
-            $total = $firstNumber / $secondNumber;
-            echo $total;
+    function addition($a,$b) {
+        global $operator;
+        if ($operator==="Addition") {
+            $addition = $a + $b;
         }
-
-}
-
-function inputNumber($firstNumber, $secondNumber)
-{
+        return $addition;
+    }
+    function subtraction($a,$b) {
+        global $operator;
+        if ($operator==="Multiplication") {
+            $subtraction = $a - $b;
+        }
+        return $subtraction;
+    }
+    function multiplication($a,$b){
+        global $operator;
+        if($operator==="Multiplication") {
+            $multiplication = $a * $b;
+        }
+        return $multiplication;
+    }
+    function division ($a,$b){
+        global $operator;
+        if ($b === 0){
+            throw new Exception("/ by zero");
+        } else if ($operator==="Division"){
+            $division = $a / $b;
+        }
+        return $division;
+    }
 
     try {
-        if ($secondNumber === 0 || ($firstNumber === $secondNumber && $secondNumber === 0 )) {
-            echo "/ by zero";
-        }
-
+        var_dump(addition($firstNumber,$secondNumber));
+        var_dump(subtraction($firstNumber,$secondNumber));
+        var_dump(multiplication($firstNumber,$secondNumber));
+        var_dump(division($firstNumber,0));
     } catch (Exception $e) {
-        echo 'Lỗi: ', $e->getMessage(), "\n";
+        echo $e->getMessage();
     }
 
 
+
 }
 
-inputNumber();
+
+
+
+
+
+
+
 ?>
 
 
